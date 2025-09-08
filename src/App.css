@@ -1,0 +1,261 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-body {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+}
+
+.modal-poster {
+  flex-shrink: 0;
+}
+
+.modal-poster img {
+  width: 250px;
+  height: 375px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-info {
+  flex: 1;
+  text-align: left;
+}
+
+.modal-info h2 {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+  color: #333;
+  line-height: 1.2;
+}
+
+.modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  color: #666;
+  font-size: 16px;
+}
+
+.modal-meta .rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f39c12;
+  font-weight: 600;
+}
+
+.modal-meta .rating img {
+  width: 18px;
+  height: 18px;
+}
+
+.modal-meta .lang {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.overview, .genres, .runtime {
+  margin-bottom: 25px;
+}
+
+.overview h3, .genres h3, .runtime h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.overview p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.genre-tag {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Make movie cards clickable */
+.movie-card {
+  cursor: pointer !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  user-select: none;
+  pointer-events: auto !important;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.movie-card:active {
+  transform: translateY(-2px);
+}
+
+/* Убедимся, что все элементы внутри карточки также показывают pointer */
+.movie-card * {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Стили для списка фильмов */
+.all-movies ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.all-movies li {
+  margin: 0;
+}
+
+/* Дополнительные стили для карточек */
+.movie-card img,
+.movie-card h3,
+.movie-card .content,
+.movie-card .rating,
+.movie-card .lang,
+.movie-card .year {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Принудительно устанавливаем курсор для всех карточек */
+.all-movies .movie-card,
+.all-movies .movie-card * {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Responsive design for modal */
+@media (max-width: 768px) {
+  .modal-body {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .modal-poster img {
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  
+  .modal-info {
+    text-align: center;
+  }
+  
+  .modal-meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
